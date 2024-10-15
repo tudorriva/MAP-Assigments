@@ -24,4 +24,28 @@ public class Shopping {
         }
         return maxPrice;
     }
+
+    public int findMostExpensiveUSBWithinBudget(int[] usb, int budget) {
+        int maxPrice = -1;
+        for(int price : usb) {
+            if(price <= budget && price > maxPrice) {
+                maxPrice = price;
+            }
+        }
+
+        return maxPrice;
+    }
+
+    public int findMaxSpent(int budget, int[] keyboards, int[] usb) {
+        int maxSpent = -1;
+        for(int keyboard : keyboards) {
+            for(int price : usb) {
+                int spent = keyboard + price;
+                if(spent <= budget && spent > maxSpent) {
+                    maxSpent = spent;
+                }
+            }
+        }
+        return maxSpent;
+    }
 }
